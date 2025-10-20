@@ -98,7 +98,7 @@ def main() -> None:
     p.add_argument("src", nargs="?", default=None, help="Source directory containing .ubz files. If omitted, defaults to D:\\Workspace\\ubxlogs\\CH")
     args = p.parse_args()
 
-    default_dir = Path(r"D:\Workspace\ubxlogs\CH")
+    default_dir = Path(r"C:\Users\amina\workspace\ubxlogs\SG")
     src_dir = Path(args.src) if args.src else default_dir
 
     try:
@@ -110,13 +110,32 @@ def main() -> None:
     # Print summary: filename and number of records
     for fname, records in results.items():
         # EXAMPLE of printing results
-        print(f"{fname}: {len(records)} records; first: {records[:5]}")
+        #print(f"{fname}: {len(records)} records; first: {records[:5]}")
         print("datetime: " + str(records[0][0]))
         print("latitude: " + str(records[0][1]))
         print("longitude: " + str(records[0][2]))
         # WRITE YOUR CODE HERE
         # You can create function if needed
+        lat = records[0][1]
+        lon = records[0][2]
+
         location = "unknown"
+        if lat > 59.83333 and lat < 68.90596 and lon > 21.37596 and lon < 30.93276:
+            print ("Finland")
+        elif lat > 45.83203 and lat < 47.69732 and lon > 6.07544 and lon < 9.83723:
+            print ("Switzerland")
+        elif lat > 18.24306 and lat < 52.33333 and lon > 75.98951 and lon < 134.28917:
+            print ("China")
+        elif lat > 24.34478 and lat < 45.40944 and lon > 124.15717 and lon < 145.575:
+            print ("Japan")
+        elif lat > 1.28967 and lat < 1.32808 and lon > 103.804641 and lon < 103.84:
+            print ("Singapore")
+        elif lat > 19.50139 and lat < 64.85694 and lon > -161.75583 and lon < -68.01197:
+            print ("United States")
+
+    
+
+
         start_time = datetime(2025, 9, 12, 0, 53, 40, 299)
         duration = 0.0 # in minutes
         print(fname + " location: " + location + " start time: " + str(start_time) + " duration: " + str(duration) + " minutes")
