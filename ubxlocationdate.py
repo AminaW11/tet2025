@@ -143,12 +143,13 @@ def main() -> None:
 
         
 
-    
+        
+        start_time = records[0][0]
+        end_time = records[-1][0]
 
-
-        start_time = datetime(2025, 9, 12, 0, 53, 40, 299)
-        duration = 0.0 # in minutes
-        print(fname + " location: " + location + " start time: " + str(start_time) + " duration: " + str(duration) + " minutes")
+        
+        duration = end_time - start_time
+        print(fname + " location: " + location + " start time: " + str(start_time) + " duration: " + str(duration) + " ")
         pass
         # END OF YOUR CODE
 
