@@ -94,22 +94,22 @@ def collect_info_from_dir(src_dir: Path) -> Dict[str, List[Tuple[datetime, float
 def getlocation(lat, lon):
     location = "unknown"
     if lat > 59.83333 and lat < 68.90596 and lon > 21.37596 and lon < 30.93276:
-        print ("Finland")
+        #print ("Finland")
         location = "Finland"
     elif lat > 45.83203 and lat < 47.69732 and lon > 6.07544 and lon < 9.83723:
-        print ("Switzerland")
+        #print ("Switzerland")
         location = "Switzerland"
     elif lat > 18.24306 and lat < 52.33333 and lon > 75.98951 and lon < 134.28917:
-        print ("China")
+        #print ("China")
         location = "China"
     elif lat > 24.34478 and lat < 45.40944 and lon > 124.15717 and lon < 145.575:
-        print ("Japan")
+        #print ("Japan")
         location = "Japan"
     elif lat > 1.28967 and lat < 1.32808 and lon > 103.804641 and lon < 103.84:
-        print ("Singapore")
+        #print ("Singapore")
         location = "Singapore"
     elif lat > 19.50139 and lat < 64.85694 and lon > -161.75583 and lon < -68.01197:
-        print ("United States")
+        #print ("United States")
         location = "United States"
     return location
 
@@ -131,13 +131,15 @@ def main() -> None:
     for fname, records in results.items():
         # EXAMPLE of printing results
         #print(f"{fname}: {len(records)} records; first: {records[:5]}")
-        print("datetime: " + str(records[0][0]))
-        print("latitude: " + str(records[0][1]))
-        print("longitude: " + str(records[0][2]))
+        #print("datetime: " + str(records[0][0]))
+        #print("latitude: " + str(records[0][1]))
+        #print("longitude: " + str(records[0][2]))
         # WRITE YOUR CODE HERE
         # You can create function if needed
         lat = records[0][1]
         lon = records[0][2]
+
+        
 
         location = getlocation(lat, lon)
 
@@ -148,8 +150,9 @@ def main() -> None:
         end_time = records[-1][0]
 
         
-        duration = end_time - start_time
-        print(fname + " location: " + location + " start time: " + str(start_time) + " duration: " + str(duration) + " ")
+        duration  = end_time - start_time
+        print(fname + "\n    location:" + " " + str(location) + "\n    start time:" + " " + str(start_time) + 
+              "\n    duration:" + " " + str(duration) + " ")
         pass
         # END OF YOUR CODE
 
